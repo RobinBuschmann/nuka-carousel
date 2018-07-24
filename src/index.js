@@ -536,7 +536,7 @@ export default class Carousel extends React.Component {
                 { isWrappingAround: false, resetWrapAroundPosition: true },
                 () => {
                   this.setState({ resetWrapAroundPosition: false });
-                  this.props.afterSlide(0);
+                  this.props.afterSlide(0, this.state.currentSlide);
                   this.resetAutoplay();
                 }
               );
@@ -564,7 +564,7 @@ export default class Carousel extends React.Component {
                 { isWrappingAround: false, resetWrapAroundPosition: true },
                 () => {
                   this.setState({ resetWrapAroundPosition: false });
-                  this.props.afterSlide(endSlide);
+                  this.props.afterSlide(endSlide, this.state.currentSlide);
                   this.resetAutoplay();
                 }
               );
@@ -577,7 +577,7 @@ export default class Carousel extends React.Component {
     this.props.beforeSlide(this.state.currentSlide, index);
 
     if (index !== this.state.currentSlide) {
-      this.props.afterSlide(index);
+      this.props.afterSlide(index, this.state.currentSlide);
     }
     this.setState(
       {
